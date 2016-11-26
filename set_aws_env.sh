@@ -1,5 +1,5 @@
 function set_aws_env {
-    if [ -f ~/.aws/credentials ]; then
+    if [[ -f ~/.aws/credentials  || -f ~/.aws/config ]]; then
         #Need to use eval otherwise it's in the context of a subshell
         eval export AWS_DEFAULT_PROFILE=$1
         eval export AWS_ACCESS_KEY_ID=`aws configure --profile $1 get aws_access_key_id`
